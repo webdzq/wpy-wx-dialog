@@ -31,7 +31,8 @@
 
 <template>
   <view class="popButtomWin-block" hidden="{{!winHidden}}" catchtouchmove="preventTouchMove">
-    <image src="../../images/2xbg.png" style="position:absolute;width: 100%; height: 100%; background-color: #000;opacity:0.5;" mode="aspectFit"></image>
+    <!-- <image src="../../images/2xbg.png" style="position:absolute;width: 100%; height: 100%; background-color: #000;opacity:0.5;" mode="aspectFit"></image> -->
+    <view style="position:absolute;width: 100%; height: 100%; background-color: #000;opacity:0.5;" ></view>
     <view class="popButtomWin">
       <view class="top">
         <slot name="topItem"></slot>

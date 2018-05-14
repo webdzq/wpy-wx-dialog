@@ -25,7 +25,8 @@
     "wepy-com-toast": "^1.0.2",
     "wepy-redux": "^1.5.3",
     "wepy-web": "^1.6.0",
-    "wpy-wx-confirmaction": "^1.0.2"
+    "wpy-wx-confirmaction": "^1.0.2",
+    "wpy-wx-dialog": "^1.0.6"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.1",
