@@ -6,7 +6,7 @@
 
 > 演示
 
-![演示](https://github.com/webdzq/wpy-wx-dialog/source/dialog.png)
+![演示](https://github.com/webdzq/wpy-wx-dialog/blob/master/dialog.gif)
 #### 开发技术介绍
 
 > wepyjs 框架：[wepyjs文档](https://tencent.github.io/wepy/document.html)
