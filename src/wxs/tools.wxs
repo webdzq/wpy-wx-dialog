@@ -1,0 +1,46 @@
+/** 
+ * 
+ * 单例模式。函数可以作为过滤器使用、功能全局变量定义和转换
+ * 只能在page页面使用，components页面不起作用
+ <wxs src="../../wxs/tools.wxs" module="tools" />
+    <view> {{tools.msg}} </view>
+    <view> {{tools.bar('1234566')}} </view>
+ * 
+*/
+
+// var formatterDate = function (stampTime) {
+//   console.log('stampTime====>',stampTime)
+//   const date = new Date(stampTime) // 时间戳为10位需*1000，时间戳为13位的话不需乘1000
+//   const Y = date.getFullYear() + "年"
+//   let M = ''
+//   if (date.getMonth() + 1 < 10) {
+//     M = '0' + (date.getMonth() + 1) + '月'
+//   } else {
+//     M = (date.getMonth() + 1) + '月'
+//   }
+//   const D = date.getDate() + '日'
+//   const h = date.getHours() + ':'
+//   const m = date.getMinutes() + ':'
+//   const s = date.getSeconds()
+//   if (opt === 'YYYYMMDD') {
+//     return Y + M + D
+//   }
+//   if (opt === 'MMDD') { // 返回月日格式
+//     return M + D
+//   }
+//   if (opt === 'mmss') { // 返回分秒格式 
+//     return m + s
+//   }
+// }
+
+// var number =function() {
+//   return 1000
+// }
+
+// var a=111111111
+
+// module.exports = {
+//   formatterDate: formatterDate,
+//   number: number,
+//   a:a
+// };

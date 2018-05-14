@@ -1,0 +1,50 @@
+
+/**
+ * 包含可以移动模块的组件模板
+ */
+
+<style lang="less">
+  .movablePanel-container {
+    background-color: #fff;
+  }
+</style>
+
+<template>
+  <view class="movablePanel-container">
+    <movable-area style="{{opts.area}}">
+      <movable-view style="{{opts.view}}" x="{{startX}}" y="{{startY}}" direction="all" @tap="goToHomeHandler">
+        <!-- <image style="width: 126rpx; height: 126rpx; " mode="aspectFit" src="../../images/home.png"></image> -->
+        <slot name="image"></slot>
+      </movable-view>
+      <slot></slot>
+    </movable-area>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  export default class MovablePanel extends wepy.component {
+    props = {
+      opts: {
+        type: Object,
+        default: {
+          area: 'position: absolute; width:100%;height:100%;',
+          view: 'width: 126rpx; height: 126rpx;'
+        }
+      }
+    }
+    data = {
+    }
+    events = {
+      'move.init': (...args) => {
+        // console.log('move.init', args)
+      }
+    }
+    watch = {}
+    methods = {
+      goToHomeHandler(evt) {
+        this.$emit('moveBlock-gotoPage', evt)
+      }
+    }
+  }
+</script>

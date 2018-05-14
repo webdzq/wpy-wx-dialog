@@ -1,0 +1,68 @@
+<style lang="less">
+  .popButtomWin-block {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+    .popButtomWin {
+      background-color: #fff;
+      z-index: 1000;
+      text-align: center;
+      width: 100%;
+      position: fixed;
+      left: 0px;
+      bottom: 0px;
+      .top {
+        display: flex;
+        justify-content: flex-end;
+        border-bottom: 1px solid #ccc;
+      }
+      .close {
+        margin-right: 22rpx;
+        color: #999;
+        width: 80rpx;
+        margin: auto;
+      }
+    }
+  }
+</style>
+
+<template>
+  <view class="popButtomWin-block" hidden="{{!winHidden}}" catchtouchmove="preventTouchMove">
+    <image src="../../images/2xbg.png" style="position:absolute;width: 100%; height: 100%; background-color: #000;opacity:0.5;" mode="aspectFit"></image>
+    <view class="popButtomWin">
+      <view class="top">
+        <slot name="topItem"></slot>
+        <view @tap="closeHandler" class="close">{{cofirmTitle}}</view>
+      </view>
+      <slot></slot>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  export default class PopButtomWin extends wepy.component {
+    props = {
+      winHidden: {
+        type: Boolean,
+        default: false
+      }
+    }
+    data = {
+      cofirmTitle: 'X'
+    }
+    methods = {
+      preventTouchMove() {
+        // 阻止下层页面滚动
+        // console.log('preventTouchMove...')
+      },
+      closeHandler(evt) {
+        console.log('closeHandler...')
+        this.$emit('popWin-close', evt)
+      }
+    }
+  }
+</script>

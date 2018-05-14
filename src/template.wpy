@@ -1,0 +1,35 @@
+
+/**
+  page模板文件
+ */
+<style lang="less">
+.template-container{
+  background-color: #fff;
+}
+</style>
+
+<template>
+  <view class="template-container">
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  export default class Template extends wepy.page {
+    config = {
+      navigationBarTitleText: '页面模板'
+    };
+    components = {};
+    mixins = [];
+    data = {};
+    computed = {
+      now() {
+        return +new Date()
+      }
+    };
+    methods = {};
+    events = {};
+    onShow() {}
+    onLoad() {}
+  }
+</script>

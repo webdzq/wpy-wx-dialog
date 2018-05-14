@@ -1,0 +1,122 @@
+
+
+<style lang="less">
+  .index-container {
+    background-color: #fff;
+    .dialog {
+      font-family: PingFangSC-Regular;
+      .title {
+        display: block;
+        padding: 30rpx;
+        font-size: 34rpx;
+        color: #393939;
+        text-align: center;
+        border-bottom:1px solid #ccc;
+
+      }
+      .content {
+        padding: 0 90rpx;
+        font-size: 26rpx;
+        line-height: 36rpx;
+        color: #393939;
+        padding:50rpx 90rpx;
+
+      }
+      .share {
+        margin: 32rpx auto 0 auto;
+        width: 570rpx;
+        height: 88rpx;
+        line-height: 88rpx;
+        font-size: 32rpx;
+        color: #fff;
+        text-align: center;
+        background-color: #f54545;
+        border-radius: 6rpx;
+      }
+      .guanbi {
+        position: relative;
+        top: 130rpx;
+        text-align: center;
+        button {
+          margin: 0;
+          padding-left: 0;
+          padding-right: 0;
+          background-color: transparent;
+          border-radius: 0;
+          line-height: 33rpx;
+        }
+      }
+    }
+  }
+</style>
+
+<template>
+  <view class="index-container">
+    <button @tap="showDialog">显示dilaog</button>
+    <DialogPanel>
+      <view class="dialog">
+        <view slot="title" class="title">{{title}}</view>
+        <view slot="content" class="content">{{successTip}}</view>
+        <button data-name="shareBtn" open-type="share" class="share">{{btnTitle}}</button>
+        <form name='pushMsgFm' report-submit="true" bindsubmit='dialogCancel'>
+          <view class="guanbi">
+            <button form-type="submit" hover-class="none">
+                            <icon type="cancel" size="40" color="white"></icon>
+                        </button>
+          </view>
+        </form>
+      </view>
+    </DialogPanel>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import DialogPanel from '@compt/dialogPanel'
+  export default class WebView extends wepy.page {
+    config = {
+      navigationBarTitleText: '对话框'
+    };
+    components = {
+      DialogPanel: DialogPanel
+    };
+    mixins = [];
+    data = {
+      title: '报名成功',
+      successTip: '欢迎您使用我的课程，我们会提供更加优质的服务',
+      btnTitle: '点击分享好友一起听课'
+    };
+    computed = {
+      now() {
+        return +new Date()
+      }
+    };
+    dialogCancel(evt) {
+      console.log('dialogCancel...')
+      this.$broadcast('dialog.hide', function() {
+        console.log('dialog.hide...')
+      })
+      if (!evt || !evt.detail) {
+        return
+      }
+      let formId = evt.detail.formId
+      const formObj = evt.detail.value
+      if (formId === 'the formId is a mock one') {
+        // 模拟器环境
+        formId = 0
+      }
+      console.log('dialogCancel=', evt.detail, formId, formObj)
+    }
+    methods = {
+      showDialog(evt) {
+        this.$broadcast('dialog.show', function() {
+          console.log('dialog.show...')
+        })
+      }
+    }
+    events = {}
+    getUrl() {}
+    onShow() {}
+    onLoad(opts) {}
+  }
+</script>

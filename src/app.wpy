@@ -1,0 +1,64 @@
+<style lang="less">
+
+</style>
+
+<script>
+  import wepy from 'wepy'
+  import 'wepy-async-function'
+  export default class extends wepy.app {
+    config = {
+      pages: [
+        'pages/index'
+      ],
+      window: {
+        backgroundTextStyle: 'white',
+        navigationBarBackgroundColor: '#fff',
+        navigationBarTitleText: '项目演示',
+        navigationBarTextStyle: 'black'
+      },
+      enablePullDownRefresh: false,
+      networkTimeout: {
+        'request': 10000,
+        'downloadFile': 15000,
+        'uploadFile': 15000
+      },
+      'debug': false
+    }
+    constructor() {
+      super()
+      this.use('requestfix')
+      this.getUserInfo()
+    }
+    onLaunch() {
+      // 网络测试
+      wx.onNetworkStatusChange(function(res) {
+        // console.log(res.isConnected)
+        // console.log(res.networkType)
+        if (res.networkType === 'none') {
+          wx.showToast({
+            title: '网络未连接，请检查后重试',
+            duration: 3000
+          })
+        }
+      })
+    }
+    getUserInfo(cb) {
+    }
+    globalData = {
+      userInfo: null
+    }
+    sleep(s) {
+      // 示例代码
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve('promise resolved')
+        }, s * 1000)
+      })
+    }
+    async testAsync() {
+      // 示例代码
+      const data = await this.sleep(3)
+      console.log(data)
+    }
+  }
+</script>
