@@ -55,8 +55,8 @@
     <button @tap="showDialog">显示dilaog</button>
     <DialogPanel>
       <view class="dialog">
-        <view slot="title" class="title">{{title}}</view>
-        <view slot="content" class="content">{{successTip}}</view>
+        <view  class="title">{{title}}</view>
+        <view  class="content">{{successTip}}</view>
         <button data-name="shareBtn" open-type="share" class="share">{{btnTitle}}</button>
         <form name='pushMsgFm' report-submit="true" bindsubmit='dialogCancel'>
           <view class="guanbi">

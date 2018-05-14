@@ -31,9 +31,6 @@
   <view class="dialogpanel-container" style="display:{{ishow?'flex':'none'}};" catchtouchmove="preventTouchMove">
     <image src="../../images/2xbg.png" style="position:absolute;width: 100%; height: 100%; background-color: #000;opacity:0.5;" mode="aspectFit"></image>
     <view class="dialog-center">
-      <!-- <slot name="title">标题</slot>
-            <slot name="content">内容</slot>
-            <slot name="btns">按钮</slot> -->
       <slot></slot>
     </view>
   </view>
