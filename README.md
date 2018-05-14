@@ -1,22 +1,16 @@
 ### 小程序项目-dialog
 
-> 实现dialog的显示和隐藏
+> -实现dialog的显示和隐藏
 
-> 弹窗调起的时候，下边不可以滚动
+> -弹窗调起的时候，下边不可以滚动
 
-> 演示
+> -演示
 
 ![演示](https://github.com/webdzq/wpy-wx-dialog/blob/master/dialog.gif)
 #### 开发技术介绍
 
-> wepyjs 框架：[wepyjs文档](https://tencent.github.io/wepy/document.html)
+> -wepyjs 框架：[wepyjs文档](https://tencent.github.io/wepy/document.html)
 
-
-> weweb小程序转h5/ios/android框架:https://github.com/wdfe/weweb
-
-> mock数据：参见`test`目录中的`test_util.js`和`test_config.js`
-
-> axios应用（暂时不建议用）:https://github.com/hjkcai/wepy-plugin-axios
 
 #### 项目运行
 
